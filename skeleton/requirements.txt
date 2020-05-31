@@ -1,0 +1,5 @@
+setuptools
+Django>=3.0
+mod_wsgi
+psycopg2>=2.7,<3.0
+ipython
