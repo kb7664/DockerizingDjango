@@ -11,6 +11,7 @@ RUN apt-get update
 RUN apt-get install -y python3.7-dev, python3-apt, python3-pip, apt-utils, vim
 
 # Install and configure mod_wsgi to run on apache2
+# TODO: build an apt installer to handle this stuff
 RUN apt-get install -y apache2
 RUN systemctl reboot
 RUN apt-get install -y mod_wsgi-httpd, mod_wsgi,
@@ -23,8 +24,6 @@ Run apt-get install -y libapache2-mod-wsgi-py3
 RUN rm -f /etc/apache2/sites-available/000-default.conf
 COPY sites-available-skeleton.conf /etc/apache2/sites-available/sites-available-skeleton.conf
 RUN a2ensite /etc/apache2/sites-available/sites-available-skeleton.conf
-RUN systemctl reload apache2
-RUN service apache2 restart
 
 # Install Postgres
 RUN apt-get install -y postgresql-11, postgresql-contrib, libpq-dev
